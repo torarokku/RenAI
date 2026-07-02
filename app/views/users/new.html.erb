@@ -1,19 +1,37 @@
-<h1>恋AI💗</h1>
+<div class="register-page">
 
-<%= form_with model: @user do |f| %>
+  <h1 class="logo">恋AI💗</h1>
 
-  <div class="field">
-    <%= f.label :name, "ユーザー名" %><br>
-    <%= f.text_field :name %>
+  <div class="register-box">
+
+    <%= form_with model: @user do |f| %>
+
+      <div class="field">
+        <%= f.label :name, "ユーザー名" %>
+
+        <div class="input-box">
+          <i class="fa-regular fa-user"></i>
+          <%= f.text_field :name, placeholder: "ユーザー名を入力してください" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "パスワード" %>
+
+        <div class="input-box">
+          <i class="fa-solid fa-lock"></i>
+          <%= f.password_field :password, placeholder: "パスワードを入力してください" %>
+        </div>
+      </div>
+
+      <div class="button-area">
+        <%= f.submit "登録する", class: "heart-btn" %>
+      </div>
+
+    <% end %>
+
+    <%= link_to "ログインはこちら", login_path, class: "login-btn" %>
+
   </div>
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br>
-    <%= f.password_field :password %>
-  </div>
-
-  <div>
-    <%= f.submit "登録する", class: "heart-btn" %>
-  </div>
-
-<% end %>
+</div>

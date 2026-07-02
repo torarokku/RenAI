@@ -1,80 +1,90 @@
-body{
+/* 登録ボタン */
+.heart-btn{
 
-    margin:0;
-    font-family:"Yu Gothic";
+    display:block;
 
-    background-image:url("/assets/sakura_bg.png");
-    background-size:cover;
-    background-position:center;
+    width:300px;
+
+    margin:40px auto;
+
+    padding:20px;
+
+    font-size:36px;
+
+    color:white;
+
+    background:linear-gradient(#ff7bb5,#ff3f8e);
+
+    border:none;
+
+    border-radius:80px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 15px rgba(255,80,150,.4);
+
+    transition:.3s;
 }
 
-.register-page{
+.heart-btn:hover{
 
-    width:100%;
-    height:100vh;
+    transform:scale(1.05);
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    box-shadow:0 12px 25px rgba(255,80,150,.5);
 }
 
+.heart-btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 12px 25px rgba(255,80,150,.5);
+}
+
+/* タイトル */
 .logo{
 
-    margin-top:30px;
-    font-size:80px;
+    margin-top:20px;
+
+    font-size:90px;
+
+    text-align: center;
+
     color:#ff3f8e;
 
     text-shadow:
-    0 0 10px white,
-    0 0 20px white;
+        0 0 10px white,
+        0 0 20px white,
+        0 0 35px white;
 }
 
-.register-box{
+/* ロゴ */
+.logo{
 
-    width:900px;
+    margin-top:20px;
+
+    font-size:90px;
+
+    color:#ff3f8e;
+
+    text-align: center;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px white,
+        0 0 35px white;
 }
 
-.field{
-
-    margin:25px 0;
-}
-
-.field label{
-
-    display:inline-block;
-
-    background:#ffbdd3;
-
-    padding:10px 25px;
-
-    border-radius:15px;
-
-    font-size:30px;
-
-    color:#c2185b;
-}
-
-.field input{
-
-    width:100%;
-    height:55px;
-
-    border-radius:10px;
-
-    border:2px solid #ddd;
-
-    font-size:24px;
-
-    padding-left:15px;
-}
+/* ログインボタン */
 
 .login-btn{
 
     display:block;
 
-    width:260px;
+    width:280px;
 
-    margin:50px auto;
+    margin:40px auto;
+
+    padding:18px;
 
     background:white;
 
@@ -82,11 +92,111 @@ body{
 
     text-align:center;
 
-    padding:18px;
-
-    border-radius:30px;
-
     text-decoration:none;
 
-    font-size:28px;
+    font-size:30px;
+
+    border-radius:40px;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.15);
 }
+
+/* ページ全体 */
+body{
+    margin:0;
+    font-family:"Yu Gothic";
+
+    background-image:url("/assets/BCO.eb0b0746-ad5c-4186-a526-6c28149d7490.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+/* 全体を中央に */
+.register-page{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* フォーム全体 */
+.register-box{
+    width:900px;
+}
+
+/* フィールド */
+.field{
+    margin:35px 0;
+}
+
+/* ラベル */
+.field label{
+    display:inline-block;
+
+    margin-bottom:10px;
+
+    background:#ffbdd3;
+
+    color:#7a0333;
+
+    font-size:30px;
+
+    padding:10px 25px;
+
+    border-radius:15px;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+}
+
+/* 入力欄 */
+.field input{
+    width:100%;
+    height:65px;
+
+    font-size:28px;
+
+    border:2px solid #ffc0cb;
+
+    border-radius:15px;
+
+    padding:0 20px;
+
+    box-sizing:border-box;
+
+    background:white;
+}
+
+/* 入力中 */
+.field input:focus{
+    outline:none;
+    border-color:#ff4f93;
+    box-shadow:0 0 10px rgba(255,79,147,.4);
+}
+
+/* アイコン付き入力欄 */
+.input-box{
+    position:relative;
+}
+
+.input-box i{
+    position:absolute;
+    left:25px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:30px;
+    color:#ff6aa7;
+}
+
+.input-box input{
+    width:100%;
+    height:65px;
+    padding-left:75px; /* アイコン分の余白 */
+    box-sizing:border-box;
+}
+
+/* フィールド */
+

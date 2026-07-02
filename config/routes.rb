@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'home/index'
   root "home#index"
 
+   resources :users, only: [:new, :create]
+
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
 

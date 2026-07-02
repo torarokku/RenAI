@@ -1,1 +1,19 @@
-<h1>新規登録画面</h1>
+<h1>恋AI💗</h1>
+
+<%= form_with model: @user do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "ユーザー名" %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.submit "登録する", class: "heart-btn" %>
+  </div>
+
+<% end %>

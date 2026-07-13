@@ -1,0 +1,159 @@
+/* トップページ全体 */
+.top-page{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* 左上ロゴ */
+.logo-mini{
+    width:100%;
+
+    padding:40px 60px;
+
+    font-size:70px;
+
+    font-weight:bold;
+
+    box-sizing:border-box;
+
+        color:#ff3f8e;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px white,
+        0 0 35px white;
+}
+
+/* タイトル */
+.main-title{
+
+    margin-top:20px;
+
+    font-size:85px;
+
+    color:#ff3f8e;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px white,
+        0 0 35px white;
+
+    font-weight:bold;
+}
+
+/* サブタイトル */
+.sub-title{
+
+    font-size:45px;
+
+    margin-bottom:80px;
+}
+
+/* キャラ選択 */
+.character-title{
+
+    width:90%;
+
+    font-size:42px;
+
+    text-decoration:underline;
+
+    margin-bottom:60px;
+
+}
+
+/* ボタンを横並び */
+.character-list{
+
+    display:flex;
+
+    gap:70px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+}
+
+.character-btn{
+
+    width:360px;
+    height:700px;
+
+    border:none;
+    border-radius:25px;
+
+    background-size:cover;
+    background-position:center;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+
+    transition:.3s;
+}
+
+
+/* キャラ名 */
+.character-btn span{
+
+    position:absolute;
+
+    bottom:20px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:80%;
+
+    padding:10px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.8);
+
+    color:#d81b60;
+
+    font-size:28px;
+
+    font-weight:bold;
+}
+
+
+/* 画像 */
+.tsundere{
+
+    background-image:url("/assets/tsundere.png");
+
+}
+
+
+.dog{
+
+    background-image:url("/assets/dog.png");
+
+}
+
+
+.oneesan{
+
+    background-image:url("/assets/oneesan.png");
+
+}
+
+
+/* ホバー */
+.character-btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+
+}

@@ -68,4 +68,11 @@ end
 
 gem "bcrypt", "~> 3.1.7"
 
+
 gem "minitest", "~> 5.16"
+
+gem "httparty"
+
+group :development, :test do
+  gem "dotenv-rails"
+end

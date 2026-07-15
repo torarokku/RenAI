@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'users/new'
   get 'home/index'
+
   root "home#index"
 
-   resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create]
 
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
@@ -14,5 +15,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  resources :conversations, only: [:index, :create]
+  resources :conversations, only: [:index, :create] do
+    collection do
+      delete :destroy_all
+    end
+  end
 end

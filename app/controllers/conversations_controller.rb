@@ -2,6 +2,14 @@ class ConversationsController < ApplicationController
   def index
     @partner = Partner.find(params[:partner_id])
 
+    @user_partner = UserPartner.find_or_create_by!(
+      user: current_user,
+      partner: @partner
+    ) do |up|
+      up.affection = 0
+      up.status = "知り合い"
+    end
+
     @conversations = Conversation.where(
       user: current_user,
       partner: @partner
@@ -10,6 +18,15 @@ class ConversationsController < ApplicationController
 
   def create
     @partner = Partner.find(params[:partner_id])
+
+    # 関係
+    user_partner = UserPartner.find_or_create_by!(
+      user: current_user,
+      partner: @partner
+    ) do |up|
+      up.affection = 0
+      up.status = "知り合い"
+    end
 
     user_message = params[:message]
 
@@ -21,6 +38,12 @@ class ConversationsController < ApplicationController
       speaker: "user"
     )
 
+    # 感情分析
+    AffectionService.update(
+      user_partner,
+      user_message
+    )    
+
     # 会話履歴を取得
     conversations = Conversation.where(
       user: current_user,
@@ -30,6 +53,7 @@ class ConversationsController < ApplicationController
     # Geminiへ送信
     ai_message = GeminiService.chat(
       @partner,
+      user_partner,
       conversations
     )
 

@@ -1,5 +1,15 @@
 <h2><%= @partner.name %> と会話</h2>
 
+<h2><%= @partner.name %></h2>
+
+<p>
+  好感度：<%= @user_partner.affection %>
+</p>
+
+<p>
+  関係：<%= @user_partner.status %>
+</p>
+
 <%= form_with url: conversations_path(partner_id: @partner.id),
               method: :post,
               data: { turbo: false } do %>

@@ -4,7 +4,7 @@
     <div class="status-header">
       <%= link_to "🏠 HOME", home_index_path, class: "home-button" %>
     </div>
-    
+
     <h2 class="partner-name">
       <%= @partner.name %>
     </h2>
@@ -34,7 +34,7 @@
 
   <div class="main-area">
 
-    <div class="message-window">
+    <div class="message-window" id="message-window">
 
       <% if @conversations.any? %>
 
@@ -58,7 +58,9 @@
 
     <div class="character">
 
-      <%= image_tag "#{@partner.name}.png", class: "partner-image" %>
+      <%= image_tag "#{@partner.name}.png",
+            class: "partner-image",
+            id: "character-image" %>
 
     </div>
 
@@ -78,6 +80,11 @@
 
   </div>
 
+  <div
+    id="event-popup"
+    data-message="<%= flash[:event] %>">
+  </div>  
+
 </div>
 
 <hr>
@@ -88,4 +95,3 @@
       data: {
         turbo_confirm: "本当に会話履歴を削除しますか？"
       } %>
-

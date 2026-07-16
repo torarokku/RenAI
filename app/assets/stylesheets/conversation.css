@@ -113,14 +113,13 @@ body{
 
 /* 立ち絵 */
 
-.partner-image{
+.partner-image {
 
-    height:650px;
+    height: 650px;
 
-    width:auto;
+    width: auto;
 
     animation:
-        characterFloat 4s ease-in-out infinite,
         glow 2.5s ease-in-out infinite;
 
     filter:
@@ -129,6 +128,10 @@ body{
         drop-shadow(0 0 35px #ff66cc)
         drop-shadow(0 0 60px #ff33aa);
 
+}
+
+.partner-image.float {
+    animation: float 3s ease-in-out infinite;
 }
 
 /* 入力 */
@@ -421,5 +424,89 @@ textarea{
     background:#ff66cc;
 
     box-shadow:0 0 15px #ff66cc;
+
+}
+
+#character-image {
+  opacity: 0;
+  transform: translateX(120px) scale(0.95);
+}
+
+#character-image.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.send-button {
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+.send-button.pressed {
+    transform: scale(0.94);
+
+    box-shadow:
+        0 0 12px #ff66cc,
+        0 0 25px #ff99dd,
+        0 0 45px #ff66cc;
+}
+
+#message-window {
+    transition: transform 0.2s ease;
+}
+
+#message-window.pop {
+    transform: scale(1.02);
+}
+
+#event-popup {
+
+    position: fixed;
+
+    top: 45%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 20px 40px;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    color: white;
+
+    background: rgba(255,100,180,.85);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 20px #ff66cc,
+        0 0 50px #ff99dd;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transition:
+        opacity .4s,
+        transform .4s;
+}
+
+#event-popup.show {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.08);
 
 }

@@ -1,0 +1,512 @@
+body{
+
+    background-image:url("/background.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+}
+
+/* 全体 */
+
+.game-screen{
+
+    width:1200px;
+
+    margin:30px auto;
+
+}
+
+/* ステータス */
+
+.status{
+
+    width:100%;
+
+    padding:15px;
+
+    background:rgba(20,20,40,.55);
+
+    border:2px solid rgba(255,255,255,.4);
+
+    border-radius:18px;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,.25),
+        inset 0 0 15px rgba(255,255,255,.08);
+
+}
+
+/* メイン */
+
+.main-area{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    margin-top:20px;
+
+}
+
+/* 会話ウィンドウ */
+
+.message-window{
+
+    width:65%;
+
+    height:600px;
+
+    overflow-y:auto;
+
+    padding:20px;
+
+    background:rgba(255,255,255,.25);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    border-radius:20px;
+
+    box-shadow:0 0 30px rgba(0,0,0,.4);
+
+}
+
+/* メッセージ */
+
+.message{
+
+    margin-bottom:18px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+}
+
+.message.user{
+
+    background:rgba(173,216,230,.4);
+
+}
+
+.message.ai{
+
+    background:rgba(255,192,203,.35);
+
+}
+
+/* キャラクター */
+
+.character{
+
+    width:32%;
+
+    text-align:center;
+
+}
+
+/* 立ち絵 */
+
+.partner-image {
+
+    height: 650px;
+
+    width: auto;
+
+    animation:
+        glow 2.5s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 8px #ffffff)
+        drop-shadow(0 0 18px #ff99cc)
+        drop-shadow(0 0 35px #ff66cc)
+        drop-shadow(0 0 60px #ff33aa);
+
+}
+
+.partner-image.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* 入力 */
+
+.input-window{
+
+    margin-top:20px;
+
+}
+
+/* テキスト */
+
+textarea{
+
+    width:100%;
+
+    height:120px;
+
+    resize:none;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.7);
+
+    backdrop-filter:blur(10px);
+
+    font-size:16px;
+
+}
+
+/* ボタン */
+
+.send-button{
+
+    margin-top:15px;
+
+    padding:12px 40px;
+
+    border:none;
+
+    border-radius:40px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:linear-gradient(90deg,#ff6ec7,#ff9a9e);
+
+    transition:.3s;
+
+    box-shadow:0 0 15px #ff6ec7;
+
+}
+
+.send-button:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 35px #ff6ec7;
+
+}
+
+/* スクロールバー */
+
+.message-window::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.message-window::-webkit-scrollbar-thumb{
+
+    background:#ffffff88;
+
+    border-radius:10px;
+
+}
+
+/* キャラがふわふわ */
+
+@keyframes characterFloat{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+.partner-name{
+
+    font-size:30px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+    color:#fff;
+
+    text-shadow:
+        0 0 5px #fff,
+        0 0 15px #ff66cc,
+        0 0 30px #ff66cc,
+        0 0 50px #ff3399;
+
+    margin-bottom:25px;
+
+}
+
+.affection-area{
+
+    margin-bottom:20px;
+
+}
+
+.affection-label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:8px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:white;
+
+    text-shadow:0 0 8px pink;
+
+}
+
+.gauge{
+
+    width:100%;
+
+    height:28px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:#444;
+
+    border:2px solid white;
+
+    box-shadow:
+        inset 0 0 10px black,
+        0 0 15px white;
+
+}
+
+.gauge-bar{
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #ff8ac8,
+        #ff3399,
+        #ff0066
+    );
+
+    box-shadow:
+        0 0 20px #ff66cc;
+
+    transition:.5s;
+
+}
+
+.status-text{
+
+    margin-top:20px;
+
+    text-align:left;
+
+    font-size:26px;
+
+    font-weight:bold;
+
+    color:#ffff99;
+
+    text-shadow:
+        0 0 10px gold,
+        0 0 20px orange;
+
+}
+
+.message strong{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:20px;
+
+    color:white;
+
+    text-shadow:
+        0 0 8px #66ccff;
+
+}
+
+@keyframes glow{
+
+    0%{
+
+        filter:
+            drop-shadow(0 0 8px #ffffff)
+            drop-shadow(0 0 18px #ff99cc)
+            drop-shadow(0 0 35px #ff66cc)
+            drop-shadow(0 0 60px #ff33aa);
+
+    }
+
+    50%{
+
+        filter:
+            drop-shadow(0 0 15px #ffffff)
+            drop-shadow(0 0 30px #ffd700)
+            drop-shadow(0 0 55px #ff66cc)
+            drop-shadow(0 0 90px #ff33aa);
+
+    }
+
+    100%{
+
+        filter:
+            drop-shadow(0 0 8px #ffffff)
+            drop-shadow(0 0 18px #ff99cc)
+            drop-shadow(0 0 35px #ff66cc)
+            drop-shadow(0 0 60px #ff33aa);
+
+    }
+
+}
+
+.status-header{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-bottom:10px;
+
+}
+
+.home-button{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:rgba(255,255,255,.15);
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    transition:.3s;
+
+    border:1px solid rgba(255,255,255,.3);
+
+}
+
+.home-button:hover{
+
+    background:#ff66cc;
+
+    box-shadow:0 0 15px #ff66cc;
+
+}
+
+#character-image {
+  opacity: 0;
+  transform: translateX(120px) scale(0.95);
+}
+
+#character-image.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.send-button {
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+.send-button.pressed {
+    transform: scale(0.94);
+
+    box-shadow:
+        0 0 12px #ff66cc,
+        0 0 25px #ff99dd,
+        0 0 45px #ff66cc;
+}
+
+#message-window {
+    transition: transform 0.2s ease;
+}
+
+#message-window.pop {
+    transform: scale(1.02);
+}
+
+#event-popup {
+
+    position: fixed;
+
+    top: 45%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 20px 40px;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    color: white;
+
+    background: rgba(255,100,180,.85);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 20px #ff66cc,
+        0 0 50px #ff99dd;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    transition:
+        opacity .4s,
+        transform .4s;
+}
+
+#event-popup.show {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.08);
+
+}

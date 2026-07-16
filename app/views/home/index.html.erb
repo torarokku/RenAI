@@ -14,20 +14,20 @@
     🎤 キャラを選択してください
   </div>
 
-<div class="character-list">
+  <div class="character-list">
 
-  <button class="character-btn tsundere">
-    <span>ツンデレ系</span>
-  </button>
+    <%= link_to conversations_path(partner_id: 1), class: "character-btn tsundere" do %>
+      <span>ツンデレ系</span>
+    <% end %>
 
-  <button class="character-btn dog">
-    <span>いぬ系</span>
-  </button>
+    <%= link_to conversations_path(partner_id: 2), class: "character-btn dog" do %>
+      <span>いぬ系</span>
+    <% end %>
 
-  <button class="character-btn oneesan">
-    <span>お姉さん系</span>
-  </button>
+    <%= link_to conversations_path(partner_id: 3), class: "character-btn oneesan" do %>
+      <span>お姉さん系</span>
+    <% end %>
 
-</div>
+  </div>
 
 </div>

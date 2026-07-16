@@ -101,6 +101,32 @@
     box-shadow:0 5px 12px rgba(0,0,0,.15);
 }
 
+/* ログインボタン */
+
+.signup-btn{
+
+    display:block;
+
+    width:280px;
+
+    margin:40px auto;
+
+    padding:18px;
+
+    background:white;
+
+    color:#d81b60;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-size:30px;
+
+    border-radius:40px;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.15);
+}
 
 /* 全体を中央に */
 .register-page{

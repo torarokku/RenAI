@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+/* ページ全体 */
+body{
+    margin:0;
+    font-family:"Yu Gothic";
+
+    background-image:url("/assets/BCO.eb0b0746-ad5c-4186-a526-6c28149d7490.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}

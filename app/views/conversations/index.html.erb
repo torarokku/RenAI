@@ -1,40 +1,84 @@
-<h2><%= @partner.name %> と会話</h2>
+<div class="game-screen">
 
-<h2><%= @partner.name %></h2>
+  <div class="status">
+    <div class="status-header">
+      <%= link_to "🏠 HOME", home_index_path, class: "home-button" %>
+    </div>
+    
+    <h2 class="partner-name">
+      <%= @partner.name %>
+    </h2>
 
-<p>
-  好感度：<%= @user_partner.affection %>
-</p>
+    <div class="affection-area">
 
-<p>
-  関係：<%= @user_partner.status %>
-</p>
+      <div class="affection-label">
+        ❤️ 好感度
+        <span><%= @user_partner.affection %>/100</span>
+      </div>
 
-<%= form_with url: conversations_path(partner_id: @partner.id),
-              method: :post,
-              data: { turbo: false } do %>
+      <div class="gauge">
 
-  <%= text_area_tag :message, nil, rows: 4, cols: 50 %>
+        <div class="gauge-bar"
+            style="width:<%= [@user_partner.affection,0].max %>%;">
+        </div>
 
-  <br>
+      </div>
 
-  <%= submit_tag "送信" %>
+    </div>
 
-<% end %>
+    <p class="status-text">
+      🌸 <%= @user_partner.status %>
+    </p>
 
-<hr>
+  </div>
 
-<% @conversations.each do |conversation| %>
+  <div class="main-area">
 
-  <% if conversation.speaker == "user" %>
-    <p><strong>あなた</strong></p>
-  <% else %>
-    <p><strong><%= @partner.name %></strong></p>
-  <% end %>
+    <div class="message-window">
 
-  <p><%= conversation.message %></p>
+      <% if @conversations.any? %>
 
-<% end %>
+        <% @conversations.each do |conversation| %>
+
+          <div class="message <%= conversation.speaker %>">
+
+            <strong>
+              <%= conversation.speaker == "user" ? "あなた" : @partner.name %>
+            </strong>
+
+            <p><%= conversation.message %></p>
+
+          </div>
+
+        <% end %>
+
+      <% end %>
+
+    </div>
+
+    <div class="character">
+
+      <%= image_tag "#{@partner.name}.png", class: "partner-image" %>
+
+    </div>
+
+  </div>
+
+  <div class="input-window">
+
+    <%= form_with url: conversations_path(partner_id: @partner.id),
+                  method: :post,
+                  data: { turbo: false } do %>
+
+      <%= text_area_tag :message %>
+
+      <%= submit_tag "送信", class: "send-button" %>
+
+    <% end %>
+
+  </div>
+
+</div>
 
 <hr>
 
@@ -44,3 +88,4 @@
       data: {
         turbo_confirm: "本当に会話履歴を削除しますか？"
       } %>
+

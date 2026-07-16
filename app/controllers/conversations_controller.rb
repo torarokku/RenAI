@@ -14,13 +14,16 @@ class ConversationsController < ApplicationController
       user: current_user,
       partner: @partner
     ).order(:created_at)
+
+    # イベント情報を受け取る
+    @event = flash[:event]
   end
 
   def create
     @partner = Partner.find(params[:partner_id])
 
     # 関係
-    user_partner = UserPartner.find_or_create_by!(
+    @user_partner = UserPartner.find_or_create_by!(
       user: current_user,
       partner: @partner
     ) do |up|
@@ -40,9 +43,9 @@ class ConversationsController < ApplicationController
 
     # 感情分析
     AffectionService.update(
-      user_partner,
+      @user_partner,
       user_message
-    )    
+    )
 
     # 会話履歴を取得
     conversations = Conversation.where(
@@ -53,7 +56,7 @@ class ConversationsController < ApplicationController
     # Geminiへ送信
     ai_message = GeminiService.chat(
       @partner,
-      user_partner,
+      @user_partner,
       conversations
     )
 
@@ -67,6 +70,16 @@ class ConversationsController < ApplicationController
     else
       flash[:alert] = "AIとの通信に失敗しました。時間をおいて再度お試しください。"
     end
+
+    # イベント判定
+    event = EventService.check(
+      current_user,
+      @partner,
+      @user_partner
+    )
+
+    # redirect後もイベント情報を保持
+    flash[:event] = event if event.present?
 
     redirect_to conversations_path(partner_id: @partner.id)
   end

@@ -10,6 +10,25 @@
     ～君もこれで恋愛マスターに！～
   </p>
 
+  <h2>獲得バッジ</h2>
+
+  <div class="badge-list">
+  <% @partners.each do |partner| %>
+
+    <% if @badges.exists?(partner: partner) %>
+
+      <%= image_tag "badge.png",
+            class: "badge" %>
+
+    <% else %>
+
+      <div class="badge-none">❓</div>
+
+    <% end %>
+
+  <% end %>
+</div>
+
   <div class="character-title">
     🎤 キャラを選択してください
   </div>

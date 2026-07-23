@@ -122,11 +122,36 @@
 .tsundere{
     background-image:url("/assets/sakura.png");
 }
-
 .dog{
     background-image:url("/assets/hina.png");
 }
-
 .oneesan{
     background-image:url("/assets/mituki.png");
+}
+
+/* ホバー */
+.character-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
+
+/* バッチ */
+.badge-list{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:30px;
+}
+.badge{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+}
+.badge-none{
+    width:80px;
+    height:80px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:50px;
 }

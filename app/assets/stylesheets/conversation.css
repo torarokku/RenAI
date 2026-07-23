@@ -671,49 +671,51 @@ textarea{
 /* ノートPC向け */
 
 @media (max-width:1100px){
-
     .partner-name{
-
         font-size:24px;
-
     }
-
     .affection-label{
-
         font-size:16px;
-
     }
-
     .status-text{
-
         font-size:18px;
-
     }
-
     .message-window{
-
         width:70%;
-
     }
-
     .character{
-
         width:28%;
-
     }
-
     textarea{
-
         height:70px;
-
     }
-
     .send-button{
-
         padding:10px 30px;
-
         font-size:16px;
-
     }
+}
 
+#event-popup.clear{
+    font-size:70px;
+    color:#ffd700;
+    font-weight:bold;
+    text-shadow:
+      0 0 10px #fff,
+      0 0 30px gold,
+      0 0 50px orange;
+    animation:
+        clearZoom 0.8s ease,
+        sparkle 1.5s infinite;
+}
+
+#clear-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    opacity:0;
+    pointer-events:none;
+    transition:.5s;
+}
+#clear-overlay.show{
+    opacity:1;
 }

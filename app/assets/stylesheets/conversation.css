@@ -501,6 +501,19 @@ textarea{
         transform .4s;
 }
 
+#event-popup.clear{
+    font-size:70px;
+    color:#ffd700;
+    font-weight:bold;
+    text-shadow:
+      0 0 10px #fff,
+      0 0 30px gold,
+      0 0 50px orange;
+    animation:
+        clearZoom 0.8s ease,
+        sparkle 1.5s infinite;
+}
+
 #event-popup.show {
 
     opacity: 1;
@@ -508,5 +521,23 @@ textarea{
     transform:
         translate(-50%, -50%)
         scale(1.08);
+
+}
+
+#clear-overlay{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.6);
+
+    opacity:0;
+    pointer-events:none;
+    transition:.5s;
+}
+
+#clear-overlay.show{
+
+    opacity:1;
 
 }

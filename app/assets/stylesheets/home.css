@@ -130,21 +130,21 @@
 /* 画像 */
 .tsundere{
 
-    background-image:url("/assets/image/桜.png");
+    background-image:url("/assets/桜.png");
 
 }
 
 
 .dog{
 
-    background-image:url("/assets/image/陽菜.png");
+    background-image:url("/assets/陽菜.png");
 
 }
 
 
 .oneesan{
 
-    background-image:url("/assets/images/美月.png");
+    background-image:url("/assets/美月.png");
 
 }
 
@@ -156,4 +156,29 @@
 
     box-shadow:0 15px 30px rgba(0,0,0,.35);
 
+}
+
+/* バッチ */
+.badge-list{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.badge{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+}
+
+.badge-none{
+    width:80px;
+    height:80px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:50px;
 }

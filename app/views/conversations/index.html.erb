@@ -1,5 +1,7 @@
 <div class="game-screen">
 
+  <div id="clear-overlay"></div>
+  
   <div class="status">
     <div class="status-header">
       <%= link_to "🏠 HOME", home_index_path, class: "home-button" %>
@@ -13,7 +15,7 @@
 
       <div class="affection-label">
         ❤️ 好感度
-        <span><%= @user_partner.affection %>/100</span>
+        <span class="ending"><%= @user_partner.affection %>/100</span>
       </div>
 
       <div class="gauge">
@@ -82,7 +84,8 @@
 
   <div
     id="event-popup"
-    data-message="<%= flash[:event] %>">
+    data-message="<%= flash[:event] %>"
+    data-home-path="<%=  home_index_path %>">
   </div>  
 
 </div>

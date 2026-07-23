@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_07_16_013127) do
+ActiveRecord::Schema[7.1].define(version: 2026_07_23_010503) do
   create_table "conversations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "partner_id", null: false
@@ -27,6 +27,16 @@ ActiveRecord::Schema[7.1].define(version: 2026_07_16_013127) do
     t.text "personality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_badges", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "partner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["partner_id"], name: "index_user_badges_on_partner_id"
+    t.index ["user_id", "partner_id"], name: "index_user_badges_on_user_id_and_partner_id", unique: true
+    t.index ["user_id"], name: "index_user_badges_on_user_id"
   end
 
   create_table "user_events", force: :cascade do |t|
@@ -59,6 +69,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_07_16_013127) do
 
   add_foreign_key "conversations", "partners"
   add_foreign_key "conversations", "users"
+  add_foreign_key "user_badges", "partners"
+  add_foreign_key "user_badges", "users"
   add_foreign_key "user_events", "partners"
   add_foreign_key "user_events", "users"
   add_foreign_key "user_partners", "partners"

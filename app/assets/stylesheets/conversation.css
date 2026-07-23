@@ -1,29 +1,50 @@
+/* =========================
+   背景
+========================= */
+
 body{
 
     background-image:url("/background.jpg");
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     background-attachment:fixed;
 
 }
 
-/* 全体 */
+/* =========================
+   全体
+========================= */
 
 .game-screen{
 
-    width:1200px;
+    width:min(95vw,1200px);
 
-    margin:30px auto;
+    height:100vh;
+
+    height:100dvh;
+
+    margin:0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:15px;
+
+    overflow:hidden;
 
 }
 
-/* ステータス */
+/* =========================
+   ステータス
+========================= */
 
 .status{
 
-    width:100%;
+    flex-shrink:0;
 
-    padding:15px;
+    padding:15px 20px;
 
     background:rgba(20,20,40,.55);
 
@@ -39,7 +60,156 @@ body{
 
 }
 
-/* メイン */
+/* HOMEボタン */
+
+.status-header{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-bottom:10px;
+
+}
+
+.home-button{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:rgba(255,255,255,.15);
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    transition:.3s;
+
+}
+
+.home-button:hover{
+
+    background:#ff66cc;
+
+    box-shadow:0 0 15px #ff66cc;
+
+}
+
+/* キャラクター名 */
+
+.partner-name{
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+    color:white;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 15px #ff66cc,
+        0 0 30px #ff66cc;
+
+}
+
+/* 好感度 */
+
+.affection-area{
+
+    margin-bottom:18px;
+
+}
+
+.affection-label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:white;
+
+    text-shadow:0 0 8px pink;
+
+}
+
+/* ゲージ */
+
+.gauge{
+
+    width:100%;
+
+    height:24px;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:#444;
+
+    border:2px solid white;
+
+    box-shadow:
+        inset 0 0 10px black,
+        0 0 15px white;
+
+}
+
+.gauge-bar{
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #ff8ac8,
+        #ff3399,
+        #ff0066
+    );
+
+    transition:.5s;
+
+    box-shadow:
+        0 0 20px #ff66cc;
+
+}
+
+/* ステータス */
+
+.status-text{
+
+    margin-top:18px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#ffff99;
+
+    text-shadow:
+        0 0 10px gold,
+        0 0 20px orange;
+
+}
+
+/* =========================
+   メインエリア
+========================= */
 
 .main-area{
 
@@ -47,19 +217,25 @@ body{
 
     justify-content:space-between;
 
-    align-items:flex-end;
+    gap:20px;
 
-    margin-top:20px;
+    margin-top:15px;
+
+    flex:1;
+
+    min-height:0;
 
 }
 
-/* 会話ウィンドウ */
+/* =========================
+   会話ウィンドウ
+========================= */
 
 .message-window{
 
-    width:65%;
+    width:68%;
 
-    height:600px;
+    height:100%;
 
     overflow-y:auto;
 
@@ -83,9 +259,11 @@ body{
 
     margin-bottom:18px;
 
-    padding:12px;
+    padding:12px 15px;
 
-    border-radius:10px;
+    border-radius:12px;
+
+    line-height:1.6;
 
 }
 
@@ -101,102 +279,18 @@ body{
 
 }
 
-/* キャラクター */
+.message strong{
 
-.character{
+    display:block;
 
-    width:32%;
-
-    text-align:center;
-
-}
-
-/* 立ち絵 */
-
-.partner-image {
-
-    height: 650px;
-
-    width: auto;
-
-    animation:
-        glow 2.5s ease-in-out infinite;
-
-    filter:
-        drop-shadow(0 0 8px #ffffff)
-        drop-shadow(0 0 18px #ff99cc)
-        drop-shadow(0 0 35px #ff66cc)
-        drop-shadow(0 0 60px #ff33aa);
-
-}
-
-.partner-image.float {
-    animation: float 3s ease-in-out infinite;
-}
-
-/* 入力 */
-
-.input-window{
-
-    margin-top:20px;
-
-}
-
-/* テキスト */
-
-textarea{
-
-    width:100%;
-
-    height:120px;
-
-    resize:none;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.7);
-
-    backdrop-filter:blur(10px);
-
-    font-size:16px;
-
-}
-
-/* ボタン */
-
-.send-button{
-
-    margin-top:15px;
-
-    padding:12px 40px;
-
-    border:none;
-
-    border-radius:40px;
+    margin-bottom:6px;
 
     font-size:18px;
 
-    cursor:pointer;
-
     color:white;
 
-    background:linear-gradient(90deg,#ff6ec7,#ff9a9e);
-
-    transition:.3s;
-
-    box-shadow:0 0 15px #ff6ec7;
-
-}
-
-.send-button:hover{
-
-    transform:scale(1.08);
-
-    box-shadow:0 0 35px #ff6ec7;
+    text-shadow:
+        0 0 8px #66ccff;
 
 }
 
@@ -216,146 +310,307 @@ textarea{
 
 }
 
-/* キャラがふわふわ */
+#message-window{
 
-@keyframes characterFloat{
-
-    0%{
-
-        transform:translateY(0px);
-
-    }
-
-    50%{
-
-        transform:translateY(-10px);
-
-    }
-
-    100%{
-
-        transform:translateY(0px);
-
-    }
+    transition:transform .2s ease;
 
 }
 
-.partner-name{
+#message-window.pop{
 
-    font-size:30px;
-
-    text-align:center;
-
-    font-weight:bold;
-
-    letter-spacing:4px;
-
-    color:#fff;
-
-    text-shadow:
-        0 0 5px #fff,
-        0 0 15px #ff66cc,
-        0 0 30px #ff66cc,
-        0 0 50px #ff3399;
-
-    margin-bottom:25px;
+    transform:scale(1.02);
 
 }
 
-.affection-area{
+/* =========================
+   キャラクター
+========================= */
 
-    margin-bottom:20px;
+.character{
 
-}
-
-.affection-label{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-bottom:8px;
-
-    font-size:20px;
-
-    font-weight:bold;
-
-    color:white;
-
-    text-shadow:0 0 8px pink;
-
-}
-
-.gauge{
-
-    width:100%;
-
-    height:28px;
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-    background:#444;
-
-    border:2px solid white;
-
-    box-shadow:
-        inset 0 0 10px black,
-        0 0 15px white;
-
-}
-
-.gauge-bar{
+    width:30%;
 
     height:100%;
 
-    background:linear-gradient(
-        90deg,
-        #ff8ac8,
-        #ff3399,
-        #ff0066
-    );
+    display:flex;
 
-    box-shadow:
-        0 0 20px #ff66cc;
+    justify-content:center;
 
-    transition:.5s;
+    align-items:flex-end;
 
 }
 
-.status-text{
+/* 立ち絵 */
 
-    margin-top:20px;
+.partner-image{
 
-    text-align:left;
+    max-height:100%;
 
-    font-size:26px;
+    max-width:100%;
 
-    font-weight:bold;
+    width:auto;
 
-    color:#ffff99;
+    animation:
+        glow 2.5s ease-in-out infinite;
 
-    text-shadow:
-        0 0 10px gold,
-        0 0 20px orange;
+    filter:
+        drop-shadow(0 0 8px #ffffff)
+        drop-shadow(0 0 18px #ff99cc)
+        drop-shadow(0 0 35px #ff66cc)
+        drop-shadow(0 0 60px #ff33aa);
 
 }
 
-.message strong{
+/* 浮遊 */
 
-    display:block;
+.partner-image.float{
 
-    margin-bottom:6px;
+    animation:
+        glow 2.5s ease-in-out infinite,
+        float 3s ease-in-out infinite;
 
-    font-size:20px;
+}
+
+/* 登場演出 */
+
+#character-image{
+
+    opacity:0;
+
+    transform:translateX(120px) scale(.95);
+
+}
+
+#character-image.show{
+
+    opacity:1;
+
+    transform:translateX(0) scale(1);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+/* =========================
+   入力欄
+========================= */
+
+.input-window{
+
+    margin-top:15px;
+
+    flex-shrink:0;
+
+}
+
+.input-window form{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* テキストエリア */
+
+textarea{
+
+    width:100%;
+
+    height:85px;
+
+    resize:none;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.7);
+
+    backdrop-filter:blur(10px);
+
+    font-size:16px;
+
+    line-height:1.5;
+
+}
+
+/* =========================
+   送信ボタン
+========================= */
+
+.send-button{
+
+    align-self:flex-end;
+
+    margin-top:12px;
+
+    padding:12px 40px;
+
+    border:none;
+
+    border-radius:40px;
+
+    font-size:18px;
+
+    cursor:pointer;
 
     color:white;
 
-    text-shadow:
-        0 0 8px #66ccff;
+    background:linear-gradient(
+        90deg,
+        #ff6ec7,
+        #ff9a9e
+    );
+
+    transition:
+        transform .15s ease,
+        box-shadow .2s ease;
+
+    box-shadow:0 0 15px #ff6ec7;
 
 }
+
+.send-button:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 30px #ff6ec7;
+
+}
+
+.send-button.pressed{
+
+    transform:scale(.94);
+
+    box-shadow:
+        0 0 12px #ff66cc,
+        0 0 25px #ff99dd,
+        0 0 45px #ff66cc;
+
+}
+
+/* =========================
+   イベントポップアップ
+========================= */
+
+#event-popup{
+
+    position:fixed;
+
+    top:45%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    padding:20px 40px;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:white;
+
+    background:rgba(255,100,180,.85);
+
+    border-radius:20px;
+
+    box-shadow:
+        0 0 20px #ff66cc,
+        0 0 50px #ff99dd;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    transition:
+        opacity .4s,
+        transform .4s;
+
+}
+
+#event-popup.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.08);
+
+}
+
+/* =========================
+   履歴削除ボタン
+========================= */
+
+.history-delete{
+
+    flex-shrink:0;
+
+    margin-top:8px;
+
+    text-align:right;
+
+}
+
+.history-delete button{
+
+    padding:6px 16px;
+
+    font-size:13px;
+
+    color:white;
+
+    background:rgba(20,20,40,.55);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.history-delete button:hover{
+
+    background:#ff3366;
+
+    box-shadow:0 0 15px #ff66cc;
+
+}
+
+/* =========================
+   アニメーション
+========================= */
+
+/* キャラクターがふわふわ浮く */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* キャラクター発光 */
 
 @keyframes glow{
 
@@ -391,122 +646,74 @@ textarea{
 
 }
 
-.status-header{
+/* =========================
+   レスポンシブ
+========================= */
 
-    display:flex;
+@media (max-width:1400px){
 
-    justify-content:flex-end;
+    .game-screen{
 
-    margin-bottom:10px;
+        width:95vw;
 
-}
+        padding:12px;
 
-.home-button{
+    }
 
-    text-decoration:none;
+    textarea{
 
-    color:white;
+        height:80px;
 
-    background:rgba(255,255,255,.15);
-
-    padding:8px 18px;
-
-    border-radius:20px;
-
-    transition:.3s;
-
-    border:1px solid rgba(255,255,255,.3);
+    }
 
 }
 
-.home-button:hover{
+/* ノートPC向け */
 
-    background:#ff66cc;
+@media (max-width:1100px){
 
-    box-shadow:0 0 15px #ff66cc;
+    .partner-name{
 
-}
+        font-size:24px;
 
-#character-image {
-  opacity: 0;
-  transform: translateX(120px) scale(0.95);
-}
+    }
 
-#character-image.show {
-  opacity: 1;
-  transform: translateX(0) scale(1);
+    .affection-label{
 
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-}
+        font-size:16px;
 
-.send-button {
-    transition:
-        transform 0.15s ease,
-        box-shadow 0.2s ease;
-}
+    }
 
-.send-button.pressed {
-    transform: scale(0.94);
+    .status-text{
 
-    box-shadow:
-        0 0 12px #ff66cc,
-        0 0 25px #ff99dd,
-        0 0 45px #ff66cc;
-}
+        font-size:18px;
 
-#message-window {
-    transition: transform 0.2s ease;
-}
+    }
 
-#message-window.pop {
-    transform: scale(1.02);
-}
+    .message-window{
 
-#event-popup {
+        width:70%;
 
-    position: fixed;
+    }
 
-    top: 45%;
+    .character{
 
-    left: 50%;
+        width:28%;
 
-    transform: translate(-50%, -50%);
+    }
 
-    padding: 20px 40px;
+    textarea{
 
-    font-size: 34px;
+        height:70px;
 
-    font-weight: bold;
+    }
 
-    color: white;
+    .send-button{
 
-    background: rgba(255,100,180,.85);
+        padding:10px 30px;
 
-    border-radius: 20px;
+        font-size:16px;
 
-    box-shadow:
-        0 0 20px #ff66cc,
-        0 0 50px #ff99dd;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: 9999;
-
-    transition:
-        opacity .4s,
-        transform .4s;
-}
-
-#event-popup.show {
-
-    opacity: 1;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1.08);
+    }
 
 }

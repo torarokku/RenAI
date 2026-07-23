@@ -82,19 +82,19 @@
 
   </div>
 
-  <div
+<div
     id="event-popup"
     data-message="<%= flash[:event] %>"
-    data-home-path="<%=  home_index_path %>">
-  </div>  
-
+    data-home-path="<%= home_index_path %>">
 </div>
 
-<hr>
+  <div class="history-delete">
+    <%= button_to "会話履歴を削除",
+          destroy_all_conversations_path(partner_id: @partner.id),
+          method: :delete,
+          data: {
+            turbo_confirm: "本当に会話履歴を削除しますか？"
+          } %>
+  </div>
 
-<%= button_to "会話履歴を削除",
-      destroy_all_conversations_path(partner_id: @partner.id),
-      method: :delete,
-      data: {
-        turbo_confirm: "本当に会話履歴を削除しますか？"
-      } %>
+</div>

@@ -1,26 +1,27 @@
 /* トップページ全体 */
 .top-page{
-    min-height:100vh;
+    height:100vh;
+    height:100dvh;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+
+    padding:20px;
+    overflow:hidden;
 }
 
 /* 左上ロゴ */
 .logo-mini{
     width:100%;
-
-    padding:40px 60px;
-
-    font-size:70px;
-
-    font-weight:bold;
-
+    padding:clamp(10px,2vh,40px) 60px;
     box-sizing:border-box;
 
-        color:#ff3f8e;
+    font-size:clamp(32px,5vh,70px);
+    font-weight:bold;
+
+    color:#ff3f8e;
 
     text-shadow:
         0 0 10px white,
@@ -30,10 +31,10 @@
 
 /* タイトル */
 .main-title{
+    margin-top:clamp(6px,2vh,20px);
 
-    margin-top:20px;
-
-    font-size:85px;
+    font-size:clamp(36px,6vh,85px);
+    font-weight:bold;
 
     color:#ff3f8e;
 
@@ -41,47 +42,37 @@
         0 0 10px white,
         0 0 20px white,
         0 0 35px white;
-
-    font-weight:bold;
 }
 
 /* サブタイトル */
 .sub-title{
-
-    font-size:45px;
-
-    margin-bottom:80px;
+    font-size:clamp(20px,3vh,45px);
+    margin-bottom:clamp(20px,5vh,80px);
 }
 
 /* キャラ選択 */
 .character-title{
-
     width:90%;
 
-    font-size:42px;
-
+    font-size:clamp(22px,3vh,42px);
     text-decoration:underline;
 
-    margin-bottom:60px;
-
+    margin-bottom:clamp(20px,4vh,60px);
 }
 
-/* ボタンを横並び */
+/* キャラクター一覧 */
 .character-list{
-
     display:flex;
-
-    gap:70px;
-
     justify-content:center;
+    gap:clamp(20px,4vw,70px);
 
     flex-wrap:wrap;
 }
 
+/* キャラボタン */
 .character-btn{
-
-    width:360px;
-    height:700px;
+    width:clamp(180px,18vw,360px);
+    height:clamp(260px,55vh,700px);
 
     border:none;
     border-radius:25px;
@@ -92,27 +83,29 @@
     cursor:pointer;
 
     position:relative;
-
     overflow:hidden;
 
-    box-shadow:0 10px 20px rgba(0,0,0,.25);
-
     transition:.3s;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
 }
 
+.character-btn:hover{
+    transform:scale(1.05);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
 
 /* キャラ名 */
 .character-btn span{
-
     position:absolute;
 
-    bottom:20px;
     left:50%;
+    bottom:20px;
 
     transform:translateX(-50%);
 
     width:80%;
-
     padding:10px;
 
     border-radius:20px;
@@ -122,40 +115,24 @@
     color:#d81b60;
 
     font-size:28px;
-
     font-weight:bold;
 }
 
-
-/* 画像 */
+/* 背景画像 */
 .tsundere{
-
-    background-image:url("/assets/桜.png");
-
+    background-image:url("/assets/sakura.png");
 }
-
-
 .dog{
-
-    background-image:url("/assets/陽菜.png");
-
+    background-image:url("/assets/hina.png");
 }
-
-
 .oneesan{
-
-    background-image:url("/assets/美月.png");
-
+    background-image:url("/assets/mituki.png");
 }
-
 
 /* ホバー */
 .character-btn:hover{
-
     transform:scale(1.05);
-
     box-shadow:0 15px 30px rgba(0,0,0,.35);
-
 }
 
 /* バッチ */
@@ -165,20 +142,16 @@
     gap:20px;
     margin-bottom:30px;
 }
-
 .badge{
     width:80px;
     height:80px;
     object-fit:contain;
 }
-
 .badge-none{
     width:80px;
     height:80px;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     font-size:50px;
 }
